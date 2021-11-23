@@ -39,7 +39,7 @@ public class SumOfSubsetsDynamic {
 
         for (int sum = 1; sum <= k; sum++) {
             System.out.print("\nsum = " + sum);
-            for (int index = 1; index <= givenArr.length; index++) {
+            for (int index = 1; index <= n; index++) {
                 System.out.print("; index = " + index);
                 /*matrix[i][j] = matrix[i][j - 1];
                 if (i >= givenArr[j - 1] && matrix[i - givenArr[j - 1]][j - 1]) {
@@ -48,10 +48,10 @@ public class SumOfSubsetsDynamic {
                     if (i >= set[j - 1])
                     subset[i][j] = subset[i][j] || subset[i - set[j - 1]][j - 1];
                 }*/
-                if(givenArr[index-1] < sum) { // if current element in array is less than sum
-                    matrix[index][sum] = matrix[index - 1][sum]; // take the same value as above
+                if(givenArr[sum-1] < index) { // if current element in array is less than sum
+                    matrix[sum][index] = matrix[sum - 1][index]; // take the same value as above
                 } else {
-                    matrix[index][sum] = matrix[index-1][sum] || matrix[index - 1][sum - givenArr[index - 1]];
+                    matrix[sum][index] = matrix[sum-1][index] || matrix[sum - 1][index - givenArr[sum - 1]];
                     // else either take value from above OR go up 1, left by current element units
                     // if current element == sum, should go to 0 (i.e. true)
                 }
