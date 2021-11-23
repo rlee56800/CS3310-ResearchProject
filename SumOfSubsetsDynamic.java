@@ -44,7 +44,6 @@ public class SumOfSubsetsDynamic {
                 /*matrix[i][j] = matrix[i][j - 1];
                 if (i >= givenArr[j - 1] && matrix[i - givenArr[j - 1]][j - 1]) {
                     matrix[i][j] = true;
-
                     subset[i][j] = subset[i][j - 1];
                     if (i >= set[j - 1])
                     subset[i][j] = subset[i][j] || subset[i - set[j - 1]][j - 1];
