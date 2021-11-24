@@ -24,66 +24,83 @@ public class SumOfSubsetsDynamic {
         return str;
     }
     
-    public static boolean isSubsetSum(int givenArr[], int n, int k)
+    static boolean isSubsetSum(int set[],
+
+                               int n, int sum)
+
     {
-        boolean matrix[][] = new boolean[k + 1][n + 1];
-        
-        for (int i = 0; i <= k; i++)
-        {
-            matrix[i][0] = false; // fill first row with false
-        }
-        
-        for (int i = 0; i <= n; i++) {
-            matrix[0][i] = true; // fill first column with true
-        }
-        
-        /*
-        for (int sum = 1; sum <= k; sum++) {
-            for (int index = 1; index <= n; index++) {
-                matrix[sum][index] = matrix[sum][index - 1];
-                // no matter what the element is, it's always compared to the square above
-                if (sum >= givenArr[index - 1] && matrix[sum - givenArr[index - 1]][index - 1]) {
-                    matrix[sum][index] = true;
-                    // if square above and left by element squares is true, mark square as true
-                    // if current element == sum, should go to 0 (true)
-                }
-                /*if(givenArr[sum-1] < index) { // if current element in array is less than sum
-                    matrix[sum][index] = matrix[sum - 1][index]; // take the same value as above
-                } else {
-                    matrix[sum][index] = matrix[sum-1][index] || matrix[sum - 1][index - givenArr[sum - 1]];
-                    // else either take value from above OR go up 1, left by current element units
-                    // if current element == sum, should go to 0 (i.e. true)
-                }
-            }
-        }*/
-        for (int i = 1; i <= k; i++) {
+
+        // The value of subset[i][j] will be
+
+        // true if there is a subset of
+
+        // set[0..j-1] with sum equal to i
+
+        boolean subset[][] = new boolean[sum + 1][n + 1];
+ 
+
+        // If sum is 0, then answer is true
+
+        for (int i = 0; i <= n; i++)
+
+            subset[0][i] = true;
+ 
+
+        // If sum is not 0 and set is empty,
+
+        // then answer is false
+
+        for (int i = 1; i <= sum; i++)
+
+            subset[i][0] = false;
+ 
+
+        // Fill the subset table in bottom
+
+        // up manner
+
+        for (int i = 1; i <= sum; i++) {
 
             for (int j = 1; j <= n; j++) {
 
-                matrix[i][j] = matrix[i][j - 1];
+                subset[i][j] = subset[i][j - 1];
 
-                if (i >= givenArr[j - 1])
+                if (i >= set[j - 1])
 
-                matrix[i][j] = matrix[i][j]
+                    subset[i][j] = subset[i][j]
 
-                                   || matrix[i - givenArr[j - 1]][j - 1];
+                                   || subset[i - set[j - 1]][j - 1];
 
             }
 
         }
-
  
+
         // print boolean array
-        for (int i = 0; i <= k; i++)
+        for (int i = 0; i <= sum; i++)
         {
             for (int j = 0; j <= n; j++) {
-                System.out.print(matrix[i][j] + " ");
+                System.out.print(subset[i][j] + " ");
             }
             System.out.println();
         }
         System.out.println();
         
-        return matrix[k][n];
-    }
+        return subset[sum][n];
+        /* // uncomment this code to print table
 
+        for (int i = 0; i <= sum; i++)
+
+        {
+
+        for (int j = 0; j <= n; j++)
+
+            System.out.println (subset[i][j]);
+
+        }
+ 
+
+        return subset[sum][n]; */
+
+    }
 }
