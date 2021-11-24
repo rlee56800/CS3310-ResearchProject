@@ -18,10 +18,16 @@ public class SumOfSubsetsDynamic {
             System.out.println("The set " + toString(arr) + " does not contain the sum k = " + k);
         }*/
 
-        String outMsg = isSubsetSum(arr, arr.length, k);
+        /*String outMsg = isSubsetSum(arr, arr.length, k);
         if(!outMsg.isEmpty()) {
             System.out.println("The set " + toString(arr) + " contains the sum k = " + k);
             System.out.println("The elements used are: " + outMsg);
+        } else {
+            System.out.println("The set " + toString(arr) + " does not contain the sum k = " + k);
+        }*/
+
+        if(isSubsetSum(arr, arr.length, k)) {
+            System.out.println("The set " + toString(arr) + " contains the sum k = " + k);
         } else {
             System.out.println("The set " + toString(arr) + " does not contain the sum k = " + k);
         }
@@ -39,7 +45,7 @@ public class SumOfSubsetsDynamic {
         return str;
     }
     
-    public static String isSubsetSum(int set[], int n, int k) {
+    public static boolean isSubsetSum(int set[], int n, int k) {
         boolean matrix[][] = new boolean[n + 1][k + 1];
  
         // sets first row false
@@ -77,13 +83,13 @@ public class SumOfSubsetsDynamic {
         }
         System.out.println();
 
-        //return matrix[n][k];
-        if(matrix[n][k])
+        return matrix[n][k];
+        /*if(matrix[n][k])
         {
             return "yoo";
         } else {
             return "";
-        }
+        }*/
         
     }
 
