@@ -53,9 +53,10 @@ public class SumOfSubsetsDynamic {
 
                 subset[i][j] = subset[i][j - 1];
 
-                if (i >= set[i - 1])
+                if (j >= set[i - 1])
 
-                    subset[i][j] = subset[i][j] || subset[i - set[j - 1]][j - 1];
+                    subset[i][j] = subset[i][j]
+                    || subset[j - set[i - 1]][j - 1];
 
             }
 
