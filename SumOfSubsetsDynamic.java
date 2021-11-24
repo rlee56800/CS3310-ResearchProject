@@ -1,7 +1,9 @@
 public class SumOfSubsetsDynamic {
     public static void main(String args[]) {
-        int arr[] = {4, 1, 10, 12, 5, 2};
-        int k = 9;
+        //int arr[] = {4, 1, 10, 12, 5, 2};
+        //int k = 9;
+        int arr[] = {3, 4, 5, 2};
+        int k = 6;
 
         /* // for returning array of elements
         int[] ssMatrix = isSubsetSum(arr, arr.length, k);
@@ -60,10 +62,15 @@ public class SumOfSubsetsDynamic {
             matrix[i][0] = true;
         }
 
-        // logic
-        for(int i = 1; i <= n; i++) {
-            for(int j = 1; j <= k; j++) {
-                if(set[i-1] > j) {
+        boolean isFirst = true; // to print first row
+        // logic (mostly)
+        for(int i = 0; i <= n; i++) {
+            for(int j = 0; j <= k; j++) { // start at 0 so first column is printed
+                if(isFirst) {
+                    // do nothing
+                    // need to print first row
+                }
+                else if(set[i-1] > j) {
                     // if element is greater than element, take value of above row (same column)
                     matrix[i][j] = matrix[i-1][j];
                 } else {
@@ -73,6 +80,7 @@ public class SumOfSubsetsDynamic {
                 }
                 System.out.print(matrix[i][j] + " "); // prints out element just entered
             }
+            isFirst = false;
             System.out.println(); // breaks row
         }
         System.out.println(); // space between matrix and statement
