@@ -2,9 +2,8 @@ public class SumOfSubsetsDynamic {
     public static void main(String args[]) {
         int arr[] = {3, 4, 5, 2};//{4, 1, 10, 12, 5, 2};
         int k = 6;//9;
-        int n = arr.length;
 
-        if(isSubsetSum(arr, n, k) == true) {
+        if(isSubsetSum(arr, arr.length, k) == true) {
             System.out.println("The set " + toString(arr) + " contains the sum k = " + k);
         }
         else {
