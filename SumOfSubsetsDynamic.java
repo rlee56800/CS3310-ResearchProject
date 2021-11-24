@@ -71,12 +71,14 @@ public class SumOfSubsetsDynamic {
                     // if element == sum, gets value from sum = 0
                     matrix[i][j] = matrix[i-1][j] || matrix[i - 1][j - set[i - 1]];
                 }
+                System.out.print(matrix[i][j] + " "); // prints out element just entered
             }
-
+            System.out.println(); // breaks row
         }
+        System.out.println(); // space between matrix and statement
  
 
-        // print matrix
+        /*// print matrix (iterates through matrix again)
         for(int i = 0; i <= n; i++) {
             for(int j = 0; j <= k; j++) {
                 System.out.print(matrix[i][j] + " ");
@@ -85,14 +87,13 @@ public class SumOfSubsetsDynamic {
         }
         System.out.println();
 
-        return matrix[n][k];
         /*if(matrix[n][k])
         {
             return "yoo";
         } else {
             return "";
         }*/
-        
+        return matrix[n][k];
     }
 
 }
