@@ -3,7 +3,8 @@ public class SumOfSubsetsDynamic {
         int arr[] = {3, 4, 5, 2};//{4, 1, 10, 12, 5, 2};
         int k = 6;//9;
 
-        /*int[] ssMatrix = isSubsetSum(arr, arr.length, k);
+        /* // for returning array of elements
+        int[] ssMatrix = isSubsetSum(arr, arr.length, k);
         if(ssMatrix[0] != -1) {
             System.out.println("The set " + toString(arr) + " contains the sum k = " + k);
             String outMsg = "The elements used are: ";
@@ -18,7 +19,8 @@ public class SumOfSubsetsDynamic {
             System.out.println("The set " + toString(arr) + " does not contain the sum k = " + k);
         }*/
 
-        /*String outMsg = isSubsetSum(arr, arr.length, k);
+        /* // for returning a string of elememts
+        String outMsg = isSubsetSum(arr, arr.length, k);
         if(!outMsg.isEmpty()) {
             System.out.println("The set " + toString(arr) + " contains the sum k = " + k);
             System.out.println("The elements used are: " + outMsg);
