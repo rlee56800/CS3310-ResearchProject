@@ -12,7 +12,6 @@ public class SumOfSubsetsDynamic {
         if(ssMatrix[0] != -1) {
             System.out.println("The set " + toString(arr) + " contains the sum k = " + k);
             String outMsg = "The elements used are: ";
-
             // appends all elements used to make the sum
             for(int i = 0; i < ssMatrix.length; i++)
             {
