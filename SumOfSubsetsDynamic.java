@@ -51,13 +51,18 @@ public class SumOfSubsetsDynamic {
 
             for (int j = 1; j <= sum; j++) {
 
-                subset[i][j] = subset[i][j - 1];
+                /*subset[i][j] = subset[i-1][j];
 
                 if (j >= set[i - 1])
+                {
+                    subset[i][j] = subset[i][j] || subset[i - 1][j - set[i - 1]];
+                }*/
 
-                    subset[i][j] = subset[i][j]
-                    || subset[j - set[i - 1]][j - 1];
-
+                if(set[i-1] > j) {
+                    subset[i][j] = subset[i-1][j];
+                } else {
+                    subset[i][j] = subset[i-1][j] || subset[i - 1][j - set[i - 1]];
+                }
             }
 
         }
