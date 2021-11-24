@@ -1,9 +1,11 @@
 public class SumOfSubsetsDynamic {
     public static void main(String args[]) {
-        //int arr[] = {4, 1, 10, 12, 5, 2};
-        //int k = 9;
-        int arr[] = {3, 4, 5, 2};
-        int k = 6;
+        int arr[] = {4, 1, 10, 12, 5, 2};
+        int k = 9;
+
+        // test cases (same as slides)
+        //int arr[] = {3, 4, 5, 2};
+        //int k = 6;
 
         /* // for returning array of elements
         int[] ssMatrix = isSubsetSum(arr, arr.length, k);
