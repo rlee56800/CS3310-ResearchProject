@@ -3,10 +3,26 @@ public class SumOfSubsetsDynamic {
         int arr[] = {3, 4, 5, 2};//{4, 1, 10, 12, 5, 2};
         int k = 6;//9;
 
-        if(isSubsetSum(arr, arr.length, k) == true) {
+        /*int[] ssMatrix = isSubsetSum(arr, arr.length, k);
+        if(ssMatrix[0] != -1) {
             System.out.println("The set " + toString(arr) + " contains the sum k = " + k);
-        }
-        else {
+            String outMsg = "The elements used are: ";
+
+            // appends all elements used to make the sum
+            for(int i = 0; i < ssMatrix.length; i++)
+            {
+                outMsg += ssMatrix[i] + " ";
+            }
+            System.out.println(outMsg);
+        } else {
+            System.out.println("The set " + toString(arr) + " does not contain the sum k = " + k);
+        }*/
+
+        String outMsg = isSubsetSum(arr, arr.length, k);
+        if(!outMsg.isEmpty()) {
+            System.out.println("The set " + toString(arr) + " contains the sum k = " + k);
+            System.out.println("The elements used are: " + outMsg);
+        } else {
             System.out.println("The set " + toString(arr) + " does not contain the sum k = " + k);
         }
     }
@@ -23,7 +39,7 @@ public class SumOfSubsetsDynamic {
         return str;
     }
     
-    public static boolean isSubsetSum(int set[], int n, int k) {
+    public static String isSubsetSum(int set[], int n, int k) {
         boolean matrix[][] = new boolean[n + 1][k + 1];
  
         // sets first row false
@@ -61,7 +77,14 @@ public class SumOfSubsetsDynamic {
         }
         System.out.println();
 
-        return matrix[n][k];
+        //return matrix[n][k];
+        if(matrix[n][k])
+        {
+            return "yoo";
+        } else {
+            return "";
+        }
+        
     }
 
 }
